@@ -9,6 +9,7 @@ const debug = constant.DEBUG;
       <welcome></welcome>
       <Icon name="uil:github" color="black" />
       <span>{{ debug }}</span>
+      <span>{{ constant.API_URL }}</span>
     </section>
   </NuxtLayout>
 </template>

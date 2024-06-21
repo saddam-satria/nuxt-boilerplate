@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfiles/prod.dockerfile
+    ports:
+      - '3000:3000'
+    networks:
+      - nuxt_network
+    environment:
+      - API_URL=http://localhost:5000
+
+networks:
+  nuxt_network:
+    driver: bridge
