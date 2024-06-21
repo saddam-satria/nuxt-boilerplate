@@ -31,13 +31,13 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
           artifacts: ./.output
   docker-build:
-  runs-on: ubuntu-latest
-  needs: deployment
-  steps:
-    - uses: actions/checkout@v4
-    - name: Build Image
-      uses: docker/build-push-action@v4
-      with:
-        context: .
-        file: dockerfiles/prod.dockerfile
-        push: false
+    runs-on: ubuntu-latest
+    needs: deployment
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: dockerfiles/prod.dockerfile
+          push: false
