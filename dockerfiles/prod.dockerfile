@@ -22,7 +22,7 @@ COPY .nuxtignore ./
 
 COPY tsconfig.json ./
 
-COPY vite.config.ts ./
+COPY vite.config.mts ./
 
 COPY assets ./assets 
 
