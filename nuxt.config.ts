@@ -1,22 +1,24 @@
 import postcssConfig from './postcss.config';
-import viteConfig from './vite.config';
+import viteConfig from './vite.config.mjs';
 import { resolve } from 'path';
 
 export default defineNuxtConfig({
   devtools: {
     enabled: process.env.DEBUG === 'true',
   },
-
   alias: {
-    '@': resolve(__dirname, '/'),
+    '@': resolve(__dirname, './'),
   },
-
+  modules: ['@pinia/nuxt', '@nuxt/icon'],
+  pinia: {
+    storesDirs: ['~/stores/**'],
+  },
   css: ['~/assets/css/main.css'],
   postcss: postcssConfig,
   dev: process.env.DEBUG === 'true',
   plugins: [],
   imports: {
-    dirs: ['composables/**', 'utils/**'],
+    dirs: ['~/composables/**', '~/utils/**'],
   },
   build: {
     transpile: [],
@@ -43,9 +45,7 @@ export default defineNuxtConfig({
       noExternal: [],
     },
   },
-
   theme: '',
-
   app: {
     head: {
       meta: [
@@ -69,6 +69,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  modules: ['@nuxt/icon'],
 });
